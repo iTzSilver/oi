@@ -23,12 +23,6 @@ printf '\n%b' $CYAN && cat << 'EOF'
 EOF
 printf '%b' $RESET
 
-if [ $(id -u) = 0 ]; then
-    printf "%bwarning:%b please don't run random scripts you find on the internet as root!\n" $YELLOW $RESET
-    printf '%bsudo or doas will be used when elevated privileges are required%b\n' $BOLD $RESET
-    exit 1
-fi
-
 if !command -v cargo >/dev/null 2>&1; then
     printf '%berror:%b can not find %bcargo%b in your $PATH, please ensure it is correctly installed\n' $RED $RESET $BOLD $RESET
     exit 1
